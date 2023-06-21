@@ -1,6 +1,8 @@
 import axios, { AxiosError, AxiosResponse } from "axios";
+import { request } from "http";
 import { toast } from "react-toastify";
-import { ShortURL } from "../models/urls";
+import { AboutDescription } from "../models/about";
+import { ShortURL, ShortURLDto } from "../models/urls";
 import { User, UserFormValues } from "../models/user";
 import { store } from "../stores/store";
 
@@ -69,13 +71,19 @@ const Account = {
 const Url = {
     list: () => requests.get<ShortURL[]>('/ShortURL'),
     details: (id: number) => requests.get<ShortURL>(`/ShortURL/${id}`),
-    create: (job: ShortURL) => requests.post<void>('/ShortURL', job),
+    create: (job: ShortURLDto) => requests.post<void>('/ShortURL', job),
     delete: (id: number) => requests.del<void>(`/ShortURL/${id}`)
+}
+
+const About = {
+    get: () => requests.get<AboutDescription>('/About'),
+    update: (aboutDescription: AboutDescription) => requests.put<void>(`/about/${aboutDescription.id}`, aboutDescription)
 }
 
 const agent = {
     Account,
-    Url
+    Url,
+    About
 }
 
 export default agent;

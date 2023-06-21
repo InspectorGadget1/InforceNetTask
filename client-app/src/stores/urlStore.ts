@@ -1,10 +1,9 @@
 import { makeAutoObservable, runInAction } from "mobx";
 import agent from "../api/agent";
-import { ShortURL } from "../models/urls";
+import { ShortURL, ShortURLDto } from "../models/urls";
 
 export default class UrlStore {
     urlRegistry = new Map<number, ShortURL>();
-    
     selectedUrl: ShortURL | undefined = undefined;
     loading = false;
     loadingInitial = false;
@@ -66,12 +65,11 @@ export default class UrlStore {
         this.loadingInitial = state;
     }
 
-    createUrl = async (url: ShortURL) => {
+    createUrl = async (url: ShortURLDto) => {
         this.loading = true;
         try {
             await agent.Url.create(url);
             runInAction(() => {
-                this.loadUrls;
                 this.loading = false;
             })
         } catch (error) {
@@ -82,7 +80,7 @@ export default class UrlStore {
         }
     }
 
-    deleteJob = async (id: number) => {
+    deleteUrl = async (id: number) => {
         this.loading = true;
         try {
             await agent.Url.delete(id);

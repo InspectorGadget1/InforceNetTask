@@ -13,8 +13,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="src\api\" />
-    <Folder Include="src\features\urls\" />
-    <Folder Include="src\models\" />
     <Folder Include="src\stores\" />
   </ItemGroup>
 </Project>

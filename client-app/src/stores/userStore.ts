@@ -2,14 +2,22 @@ import { makeAutoObservable, runInAction } from "mobx";
 import agent from "../api/agent";
 import { User, UserFormValues } from "../models/user";
 import { store } from "./store";
+import jwt_decode from "jwt-decode";
 
-
+interface DecodedToken {
+    role: string
+}
 
 export default class UserStore {
     user: User | null = null;
 
     constructor() {
         makeAutoObservable(this)
+    }
+
+    get role() {
+        const decoded = jwt_decode(this.user?.token!) as DecodedToken;
+        return decoded.role;
     }
 
     get isLoggedIn() {

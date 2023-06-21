@@ -36,12 +36,12 @@ namespace Application.ShortURLs
             {
                 var exist = await _context.ShortURLs.FirstOrDefaultAsync(x => x.DestinationURL == request.CreateShortURLDto.DestinationURL);
                 if (exist != null) return Result<Unit>.Failure("Already exist");
-                var user = _userManager.FindByNameAsync(request.CreateShortURLDto.CreatedBy);
+                var user = await _userManager.FindByNameAsync(request.CreateShortURLDto.CreatedBy);
                 var newShortURL = new ShortURL
                 {
                     ShortenedURL = _urlEncoder.Encode(request.CreateShortURLDto.DestinationURL),
                     DestinationURL = request.CreateShortURLDto.DestinationURL,
-                    //CreatedBy = user,
+                    CreatedById = user.Id.ToString(),
                     CreatedDate = DateTime.Now,
                 };
                 _context.ShortURLs.Add(newShortURL);

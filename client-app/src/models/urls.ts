@@ -5,4 +5,8 @@ export interface ShortURL {
     createdDate: string;
     createdBy: string;
 }
+export interface ShortURLDto {
+    destinationURL: string;
+    createdBy?: string;
+}
 

@@ -9,6 +9,8 @@ import { useStore } from '../stores/store';
 import LoadingComponent from './loadingComponent';
 import ModalContainer from '../common/modals/modalContainer';
 import { ToastContainer } from 'react-toastify';
+import UrlDetails from '../features/urls/urlDetails';
+import About from '../features/about';
 
 
 function App() {
@@ -37,9 +39,8 @@ function App() {
                         <NavBar />
                         <Container style={{ marginTop: '7em' }}>
                             <Routes>
-                                {/* <Route path='shortUrl/:id' element={<JobDetails />} /> 
-                                    <Route path='about' element={<Analysis />} />
-                                  */ }
+                                <Route path='shortUrl/:id' element={<UrlDetails />} />
+                                <Route path='about' element={<About />} />
                                 <Route path='login' element={<LoginForm />} />
                             </Routes>
                         </Container>
