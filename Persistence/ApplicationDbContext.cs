@@ -17,5 +17,6 @@ namespace Persistence
         }
 
         public DbSet<ShortURL> ShortURLs { get; set; }
+        public DbSet<AboutDescription> AboutDescriptions { get; set; }
     }
 }

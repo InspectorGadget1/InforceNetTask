@@ -10,5 +10,6 @@ namespace Application.ShortURLs
     public class CreateShortURLDto
     {
         public string DestinationURL { get; set; }
+        public string CreatedBy { get; set; }
     }
 }

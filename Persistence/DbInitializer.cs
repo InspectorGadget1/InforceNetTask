@@ -16,12 +16,16 @@ namespace Persistence
             // Get the required services
             var userManager = serviceProvider.GetRequiredService<UserManager<ApplicationUser>>();
             var roleManager = serviceProvider.GetRequiredService<RoleManager<ApplicationRole>>();
+            var context = serviceProvider.GetRequiredService<ApplicationDbContext>();
 
             // Seed roles
             await SeedRoles(roleManager);
 
             // Seed users
             await SeedUsers(userManager);
+
+            // Seed About description
+            await SeedAbout(context);
         }
 
         private static async Task SeedRoles(RoleManager<ApplicationRole> roleManager)
@@ -72,6 +76,16 @@ namespace Persistence
                     }
                 }
             }
+        }
+        private static async Task SeedAbout(ApplicationDbContext context)
+        {
+            if (context.AboutDescriptions.Any()) return;
+            var aboutDescription = new AboutDescription
+            {
+                Description = "Seeded description"
+            };
+            context.AboutDescriptions.Add(aboutDescription);
+            await context.SaveChangesAsync();
         }
     }
 }

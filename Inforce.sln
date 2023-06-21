@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "API\API.csproj", "{2
 		{4272089F-04FB-407B-98FE-4D88A210B2C1} = {4272089F-04FB-407B-98FE-4D88A210B2C1}
 	EndProjectSection
 EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "client-app", "client-app\client-app.esproj", "{581E8E04-A549-49E9-9249-D8A09E44448F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +45,12 @@ Global
 		{202E9180-F77B-483E-B0AF-816A021628E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{202E9180-F77B-483E-B0AF-816A021628E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{202E9180-F77B-483E-B0AF-816A021628E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{581E8E04-A549-49E9-9249-D8A09E44448F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{581E8E04-A549-49E9-9249-D8A09E44448F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{581E8E04-A549-49E9-9249-D8A09E44448F}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{581E8E04-A549-49E9-9249-D8A09E44448F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{581E8E04-A549-49E9-9249-D8A09E44448F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{581E8E04-A549-49E9-9249-D8A09E44448F}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
